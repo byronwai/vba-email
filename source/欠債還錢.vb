@@ -25,7 +25,8 @@ Sub Button2_Click()
     currRow = 2
     Do While IsEmpty(Cells(currRow, 2)) = False
                
-        strFilter = "@SQL= urn:schemas:httpmail:sender LIKE '%" + Cells(currRow, 2).Text + "%'"
+        ' strFilter = "@SQL= urn:schemas:httpmail:sender LIKE '%" + Cells(currRow, 2).Text + "%'"
+        strFilter = "@SQL= urn:schemas:httpmail:fromemail LIKE '%" + Cells(currRow, 2).Text + "%'"
         Set filtered_items = myFolder.Items.Restrict(strFilter)
         
         If filtered_items.count = 0 Then GoTo ContinueLoop
